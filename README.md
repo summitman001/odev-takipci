@@ -12,7 +12,7 @@ Aynı dönemde birden fazla ders alan üniversite öğrencileri için. Hesap aç
 
 ## Proje Panosu
 
-Pano bağlantısı yakında eklenecek.
+İşlerin takibi GitHub Projects panosunda yapılıyor: [Ödev Takipçi Panosu](https://github.com/users/summitman001/projects/1)
 
 ## Çalıştırma
 
