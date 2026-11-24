@@ -170,6 +170,12 @@ input.hatali {
   color: var(--yazi-soluk);
 }
 
+.odev-kalan {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 @media (min-width: 640px) {
   .kart {
     padding: 24px;
