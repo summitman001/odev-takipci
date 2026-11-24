@@ -35,6 +35,41 @@ function tarihiBicimle(tarih) {
   return `${gun}.${ay}.${yil}`;
 }
 
+const GUN_MS = 24 * 60 * 60 * 1000;
+
+function kalanGunHesapla(tarih) {
+  // Her iki tarih de yerel gece yarısına çekilir; böylece saat dilimi ve
+  // günün saati sonucu etkilemez. Math.round, yaz saati geçişindeki
+  // 23/25 saatlik günlerden doğan farkı giderir.
+  const [yil, ay, gun] = tarih.split("-").map(Number);
+  const hedef = new Date(yil, ay - 1, gun);
+  const simdi = new Date();
+  const bugun = new Date(simdi.getFullYear(), simdi.getMonth(), simdi.getDate());
+  return Math.round((hedef - bugun) / GUN_MS);
+}
+
+function kalanSureMetni(kalanGun) {
+  if (kalanGun > 0) {
+    return `${kalanGun} gün kaldı`;
+  }
+  if (kalanGun === 0) {
+    return "Bugün teslim";
+  }
+  return `${-kalanGun} gün gecikti`;
+}
+
+const YAKIN_GUN_SINIRI = 3;
+
+function aciliyetSinifi(kalanGun) {
+  if (kalanGun < 0) {
+    return "odev--gecmis";
+  }
+  if (kalanGun <= YAKIN_GUN_SINIRI) {
+    return "odev--yakin";
+  }
+  return "";
+}
+
 function uyariGoster(mesaj) {
   uyari.textContent = mesaj;
   uyari.hidden = false;
@@ -73,12 +108,28 @@ function odevElemaniOlustur(odev) {
   tarih.className = "odev-tarih";
   tarih.textContent = `Teslim: ${tarihiBicimle(odev.tarih)}`;
 
-  li.append(ders, baslik, tarih);
+  const kalanGun = kalanGunHesapla(odev.tarih);
+  const sinif = aciliyetSinifi(kalanGun);
+  if (sinif) {
+    li.classList.add(sinif);
+  }
+
+  const kalan = document.createElement("p");
+  kalan.className = "odev-kalan";
+  kalan.textContent = kalanSureMetni(kalanGun);
+
+  li.append(ders, baslik, tarih, kalan);
   return li;
 }
 
+function tarihayaGoreSirala(kayitlar) {
+  // En yakın teslim tarihi başta. Aynı günde olanlar eklenme sırasını korur.
+  // "YYYY-AA-GG" biçimi alfabetik olarak da tarih sırasındadır.
+  return [...kayitlar].sort((a, b) => a.tarih.localeCompare(b.tarih) || a.id - b.id);
+}
+
 function listeyiCiz() {
-  liste.replaceChildren(...odevler.map(odevElemaniOlustur));
+  liste.replaceChildren(...tarihayaGoreSirala(odevler).map(odevElemaniOlustur));
   bosMesaj.hidden = odevler.length > 0;
 }
 
