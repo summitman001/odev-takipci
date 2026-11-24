@@ -29,4 +29,15 @@ Veriler tarayıcının localStorage'ında tutulur; sunucu ya da veritabanı yokt
 
 ## Özellikler ve Nasıl Denenir
 
-Geliştiriliyor.
+### Ödev ekleme ve listeleme
+
+Ders adı, ödev başlığı ve teslim tarihini girerek ödev ekleyebilir, eklenen ödevleri listede görebilirsiniz. Ödevler tarayıcının localStorage'ında saklanır, sayfayı yenileseniz de kaybolmaz.
+
+**Nasıl denenir?**
+
+1. `index.html` dosyasını tarayıcıda açın.
+2. "Ders adı", "Ödev başlığı" ve "Teslim tarihi" alanlarını doldurup **Ekle**'ye basın. Ödev "Ödevlerim" bölümünde görünür ve form temizlenir.
+3. Alanlardan birini ya da hepsini boş bırakıp **Ekle**'ye basın. Ödev eklenmez, eksik alanları belirten bir uyarı formun içinde görünür.
+4. Birkaç ödev daha ekleyin, sonra sayfayı yenileyin (F5). Ödevler listede durmaya devam eder.
+
+Diğer özellikler (sıralama, tamamlama, silme, filtreleme) geliştiriliyor.
