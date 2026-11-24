@@ -4,11 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ödev Takipçi</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <header class="baslik">
     <h1>Ödev Takipçi</h1>
+    <p>Tüm derslerin ödevleri tek yerde.</p>
   </header>
-  <main></main>
+
+  <main>
+    <section class="kart" aria-labelledby="form-baslik">
+      <h2 id="form-baslik">Yeni ödev ekle</h2>
+
+      <form id="odev-formu" novalidate>
+        <div class="alan">
+          <label for="ders">Ders adı</label>
+          <input type="text" id="ders" name="ders" placeholder="Örn. Veri Yapıları" autocomplete="off">
+        </div>
+
+        <div class="alan">
+          <label for="baslik">Ödev başlığı</label>
+          <input type="text" id="baslik" name="baslik" placeholder="Örn. Bağlı liste uygulaması" autocomplete="off">
+        </div>
+
+        <div class="alan">
+          <label for="tarih">Teslim tarihi</label>
+          <input type="date" id="tarih" name="tarih">
+        </div>
+
+        <p id="uyari" class="uyari" role="alert" hidden></p>
+
+        <button type="submit" class="buton">Ekle</button>
+      </form>
+    </section>
+
+    <section class="kart" aria-labelledby="liste-baslik">
+      <h2 id="liste-baslik">Ödevlerim</h2>
+      <p id="bos-mesaj" class="bos-mesaj">Henüz ödev eklenmedi.</p>
+      <ul id="odev-listesi" class="odev-listesi"></ul>
+    </section>
+  </main>
 </body>
 </html>

@@ -1,0 +1,182 @@
+:root {
+  --arka-plan: #f3f5f9;
+  --kart: #ffffff;
+  --yazi: #1f2937;
+  --yazi-soluk: #6b7280;
+  --cizgi: #d9dee7;
+  --vurgu: #2563eb;
+  --vurgu-koyu: #1d4ed8;
+  --uyari-yazi: #b42318;
+  --uyari-zemin: #fef3f2;
+  --uyari-cizgi: #fda29b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 16px 32px;
+  background: var(--arka-plan);
+  color: var(--yazi);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.baslik,
+main {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.baslik {
+  padding: 28px 0 16px;
+}
+
+.baslik h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.baslik p {
+  margin: 4px 0 0;
+  color: var(--yazi-soluk);
+}
+
+.kart {
+  background: var(--kart);
+  border: 1px solid var(--cizgi);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.kart h2 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+}
+
+.alan {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--cizgi);
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+input:focus-visible,
+.buton:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 1px;
+}
+
+input:focus-visible {
+  border-color: var(--vurgu);
+}
+
+input.hatali {
+  border-color: var(--uyari-yazi);
+  background: var(--uyari-zemin);
+}
+
+.uyari {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--uyari-cizgi);
+  border-radius: 8px;
+  background: var(--uyari-zemin);
+  color: var(--uyari-yazi);
+  font-size: 0.9rem;
+}
+
+.uyari[hidden] {
+  display: none;
+}
+
+.buton {
+  width: 100%;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--vurgu);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buton:hover {
+  background: var(--vurgu-koyu);
+}
+
+.bos-mesaj {
+  margin: 0;
+  color: var(--yazi-soluk);
+}
+
+.bos-mesaj[hidden] {
+  display: none;
+}
+
+.odev-listesi {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.odev {
+  padding: 12px 14px;
+  border: 1px solid var(--cizgi);
+  border-left: 4px solid var(--vurgu);
+  border-radius: 8px;
+}
+
+.odev-ders {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--vurgu);
+}
+
+.odev-baslik {
+  margin: 2px 0 4px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.odev-tarih {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--yazi-soluk);
+}
+
+@media (min-width: 640px) {
+  .kart {
+    padding: 24px;
+  }
+
+  .buton {
+    width: auto;
+    min-width: 140px;
+  }
+}
