@@ -2,6 +2,8 @@
 
 Farklı derslerdeki ödev teslim tarihlerini tek bir yerde takip etmeye yarayan basit bir web uygulaması.
 
+**Kurulum gerekmeden denemek için:** https://summitman001.github.io/odev-takipci/
+
 ## Hangi problemi çözüyor?
 
 Öğrenciler her dersin ödevini farklı bir yerden öğreniyor ve teslim tarihlerini kaçırabiliyor. Tüm ödevleri ve kalan süreleri tek ekranda gösteren, kurulum gerektirmeyen basit bir araç yok.
@@ -25,36 +27,27 @@ cd odev-takipci
 
 Ardından `index.html` dosyasına çift tıklayın ya da tarayıcınıza sürükleyin.
 
-Veriler tarayıcının localStorage'ında tutulur; sunucu ya da veritabanı yoktur.
+Uygulama HTML, CSS ve sade JavaScript ile yazıldı. Veriler tarayıcının localStorage'ında tutulur; sunucu ya da veritabanı yoktur. `main` dalına yapılan her değişiklik GitHub Actions ile otomatik olarak yukarıdaki canlı siteye yayınlanır.
 
 ## Özellikler ve Nasıl Denenir
 
-### Ödev ekleme ve listeleme
+### 1. Ödev ekleme ve listeleme
 
-Ders adı, ödev başlığı ve teslim tarihini girerek ödev ekleyebilir, eklenen ödevleri listede görebilirsiniz. Ödevler tarayıcının localStorage'ında saklanır, sayfayı yenileseniz de kaybolmaz.
+Ders adı, ödev başlığı ve teslim tarihi girilerek ödev eklenir. Ödevler sayfa yenilense de kaybolmaz.
 
-**Nasıl denenir?**
+1. Canlı siteyi ya da `index.html` dosyasını açın.
+2. Üç alanı doldurup **Ekle**'ye basın. Ödev "Ödevlerim" bölümünde görünür ve form temizlenir.
+3. Alanlardan birini ya da hepsini boş bırakıp **Ekle**'ye basın. Ödev eklenmez, eksik alanları belirten bir uyarı formda görünür.
+4. Birkaç ödev ekleyip sayfayı yenileyin (F5). Ödevler listede kalır.
 
-1. `index.html` dosyasını tarayıcıda açın.
-2. "Ders adı", "Ödev başlığı" ve "Teslim tarihi" alanlarını doldurup **Ekle**'ye basın. Ödev "Ödevlerim" bölümünde görünür ve form temizlenir.
-3. Alanlardan birini ya da hepsini boş bırakıp **Ekle**'ye basın. Ödev eklenmez, eksik alanları belirten bir uyarı formun içinde görünür.
-4. Birkaç ödev daha ekleyin, sonra sayfayı yenileyin (F5). Ödevler listede durmaya devam eder.
+### 2. Teslim tarihine göre sıralama ve kalan gün
 
-### Teslim tarihine göre sıralama ve kalan gün
+Ödevler en yakın tarihten başlayarak dizilir. Her ödevde "X gün kaldı", "Bugün teslim" ya da "X gün gecikti" yazar. Geçmiş ödevler kırmızı, 3 gün veya daha az kalanlar (bugün dahil) turuncu görünür.
 
-Ödevler en yakın teslim tarihinden başlayarak sıralanır. Her ödevin altında kalan süre yazar: "X gün kaldı", "Bugün teslim" ya da "X gün gecikti". Tarihi geçmiş ödevler kırmızı, teslimine 3 gün veya daha az kalanlar (bugün teslim dahil) turuncu görünür. Gün hesabı yerel gece yarısına göre yapılır, günün saati sonucu değiştirmez.
+1. Bugüne göre şu ödevleri karışık sırayla ekleyin: 5 gün önce, 1 gün önce, bugün, yarın, 3 gün sonra, 4 gün sonra, 10 gün sonra.
+2. Liste eklediğiniz sıraya bakılmadan en eski tarihten en yeniye dizilmeli.
+3. Yazılar sırasıyla "5 gün gecikti", "1 gün gecikti", "Bugün teslim", "1 gün kaldı", "3 gün kaldı", "4 gün kaldı", "10 gün kaldı" olmalı.
+4. İlk iki ödev kırmızı, bugün/yarın/3 gün sonrası turuncu, kalanlar renksiz görünmeli.
+5. 2 gün sonrası için yeni bir ödev ekleyin. Liste yeniden sıralanır, ödev doğru yere girer.
 
-**Nasıl denenir?**
-
-1. `index.html` dosyasını tarayıcıda açın.
-2. Bugünün tarihine göre şu örnek ödevleri, bilerek karışık sırayla ekleyin:
-   - Geçmiş: 5 gün önce, 1 gün önce
-   - Bugün: bugünün tarihi
-   - Yakın gelecek: yarın, 3 gün sonra
-   - Uzak gelecek: 4 gün sonra, 10 gün sonra
-3. Liste, eklediğiniz sıraya bakılmaksızın en eski tarihten en yeni tarihe doğru dizilir.
-4. Kalan süre yazıları şöyle olmalı: "5 gün gecikti", "1 gün gecikti", "Bugün teslim", "1 gün kaldı", "3 gün kaldı", "4 gün kaldı", "10 gün kaldı".
-5. Renkleri kontrol edin: geçmiş tarihliler kırmızı; bugün, yarın ve 3 gün sonrası turuncu; 4 gün ve sonrası renksiz (varsayılan) görünür.
-6. Araya düşen bir tarihle (ör. 2 gün sonra) yeni ödev ekleyin. Liste yeniden sıralanır, ödev doğru yere girer.
-
-Diğer özellikler (tamamlama, silme, filtreleme) geliştiriliyor.
+Sıradaki özellikler (tamamlama, silme, filtreleme) için panoya bakabilirsiniz.
