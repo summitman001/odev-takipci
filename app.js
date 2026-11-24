@@ -6,7 +6,28 @@ const uyari = document.getElementById("uyari");
 const liste = document.getElementById("odev-listesi");
 const bosMesaj = document.getElementById("bos-mesaj");
 
-let odevler = [];
+const DEPO_ANAHTARI = "odevler";
+
+function odevleriOku() {
+  try {
+    const kayit = JSON.parse(localStorage.getItem(DEPO_ANAHTARI));
+    return Array.isArray(kayit) ? kayit : [];
+  } catch (hata) {
+    // Bozuk ya da erişilemeyen kayıt: boş listeyle devam et
+    return [];
+  }
+}
+
+function odevleriKaydet() {
+  try {
+    localStorage.setItem(DEPO_ANAHTARI, JSON.stringify(odevler));
+    return true;
+  } catch (hata) {
+    return false;
+  }
+}
+
+let odevler = odevleriOku();
 
 function tarihiBicimle(tarih) {
   // "2026-11-30" -> "30.11.2026" (saat dilimi kaymasını önlemek için elle ayrıştırılır)
@@ -92,6 +113,9 @@ form.addEventListener("submit", (olay) => {
 
   uyariGizle();
   odevler.push({ id: Date.now(), ders, baslik, tarih });
+  if (!odevleriKaydet()) {
+    uyariGoster("Ödev eklendi ama tarayıcı kaydetmeye izin vermedi; sayfa yenilenince kaybolabilir.");
+  }
   listeyiCiz();
   form.reset();
   dersInput.focus();
