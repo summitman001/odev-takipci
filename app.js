@@ -77,8 +77,14 @@ function odevElemaniOlustur(odev) {
   return li;
 }
 
+function tarihayaGoreSirala(kayitlar) {
+  // En yakın teslim tarihi başta. Aynı günde olanlar eklenme sırasını korur.
+  // "YYYY-AA-GG" biçimi alfabetik olarak da tarih sırasındadır.
+  return [...kayitlar].sort((a, b) => a.tarih.localeCompare(b.tarih) || a.id - b.id);
+}
+
 function listeyiCiz() {
-  liste.replaceChildren(...odevler.map(odevElemaniOlustur));
+  liste.replaceChildren(...tarihayaGoreSirala(odevler).map(odevElemaniOlustur));
   bosMesaj.hidden = odevler.length > 0;
 }
 
