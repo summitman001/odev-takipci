@@ -16,11 +16,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Depoyu al
         uses: actions/checkout@v4
@@ -38,6 +35,15 @@ jobs:
         with:
           path: _site
 
+  # Yükleme ve yayın ayrı işlerde: artifact'ın görünür olması için ara verilir.
+  # Tek işte olunca deploy adımı artifact'ı bulamayıp hata veriyordu.
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Pages'e yayınla
         id: deployment
         uses: actions/deploy-pages@v4
