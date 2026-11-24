@@ -9,6 +9,10 @@
   --uyari-yazi: #b42318;
   --uyari-zemin: #fef3f2;
   --uyari-cizgi: #fda29b;
+  --gecmis: #c0261b;
+  --gecmis-zemin: #fff5f4;
+  --yakin: #b45309;
+  --yakin-zemin: #fff8eb;
 }
 
 * {
@@ -174,6 +178,24 @@ input.hatali {
   margin: 6px 0 0;
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+.odev--gecmis {
+  border-left-color: var(--gecmis);
+  background: var(--gecmis-zemin);
+}
+
+.odev--gecmis .odev-kalan {
+  color: var(--gecmis);
+}
+
+.odev--yakin {
+  border-left-color: var(--yakin);
+  background: var(--yakin-zemin);
+}
+
+.odev--yakin .odev-kalan {
+  color: var(--yakin);
 }
 
 @media (min-width: 640px) {

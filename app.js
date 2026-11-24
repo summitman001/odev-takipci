@@ -58,6 +58,18 @@ function kalanSureMetni(kalanGun) {
   return `${-kalanGun} gün gecikti`;
 }
 
+const YAKIN_GUN_SINIRI = 3;
+
+function aciliyetSinifi(kalanGun) {
+  if (kalanGun < 0) {
+    return "odev--gecmis";
+  }
+  if (kalanGun <= YAKIN_GUN_SINIRI) {
+    return "odev--yakin";
+  }
+  return "";
+}
+
 function uyariGoster(mesaj) {
   uyari.textContent = mesaj;
   uyari.hidden = false;
@@ -96,9 +108,15 @@ function odevElemaniOlustur(odev) {
   tarih.className = "odev-tarih";
   tarih.textContent = `Teslim: ${tarihiBicimle(odev.tarih)}`;
 
+  const kalanGun = kalanGunHesapla(odev.tarih);
+  const sinif = aciliyetSinifi(kalanGun);
+  if (sinif) {
+    li.classList.add(sinif);
+  }
+
   const kalan = document.createElement("p");
   kalan.className = "odev-kalan";
-  kalan.textContent = kalanSureMetni(kalanGunHesapla(odev.tarih));
+  kalan.textContent = kalanSureMetni(kalanGun);
 
   li.append(ders, baslik, tarih, kalan);
   return li;
