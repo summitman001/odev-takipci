@@ -290,16 +290,15 @@ input.hatali:focus {
   max-width: 100%;
   margin: 0;
   padding: 3px 10px;
-  overflow: hidden;
-  border-radius: 999px;
+  border-radius: 12px;
   background: #eceeff;
   color: var(--vurgu-koyu);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  text-overflow: ellipsis;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
-  white-space: nowrap;
 }
 
 /* Kalan gün rozeti: renk duruma göre değişir */
