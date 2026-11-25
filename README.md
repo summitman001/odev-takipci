@@ -29,9 +29,11 @@ Ardından `index.html` dosyasına çift tıklayın ya da tarayıcınıza sürük
 
 Uygulama HTML, CSS ve sade JavaScript ile yazıldı. Veriler tarayıcının localStorage'ında tutulur; sunucu ya da veritabanı yoktur. `main` dalına yapılan her değişiklik GitHub Actions ile otomatik olarak yukarıdaki canlı siteye yayınlanır.
 
-## Özellikler ve Nasıl Denenir
+## İki Ana Özellik ve Nasıl Denenir
 
 ### 1. Ödev ekleme ve listeleme
+
+Kart: [#1](https://github.com/summitman001/odev-takipci/issues/1) · PR: [#7](https://github.com/summitman001/odev-takipci/pull/7)
 
 Ders adı, ödev başlığı ve teslim tarihi girilerek ödev eklenir. Ödevler sayfa yenilense de kaybolmaz.
 
@@ -42,6 +44,8 @@ Ders adı, ödev başlığı ve teslim tarihi girilerek ödev eklenir. Ödevler 
 
 ### 2. Teslim tarihine göre sıralama ve kalan gün
 
+Kart: [#2](https://github.com/summitman001/odev-takipci/issues/2) · PR: [#8](https://github.com/summitman001/odev-takipci/pull/8)
+
 Ödevler en yakın tarihten başlayarak dizilir. Her ödevde "X gün kaldı", "Bugün teslim" ya da "X gün gecikti" yazar. Geçmiş ödevler kırmızı, 3 gün veya daha az kalanlar (bugün dahil) turuncu görünür.
 
 1. Bugüne göre şu ödevleri karışık sırayla ekleyin: 5 gün önce, 1 gün önce, bugün, yarın, 3 gün sonra, 4 gün sonra, 10 gün sonra.
@@ -50,16 +54,15 @@ Ders adı, ödev başlığı ve teslim tarihi girilerek ödev eklenir. Ödevler 
 4. İlk iki ödevin sol çizgisi ve kalan süre yazısı kırmızı, bugün/yarın/3 gün sonrası hardal (turuncu), 4 gün ve sonrası gri olmalı.
 5. 2 gün sonrası için yeni bir ödev ekleyin. Liste yeniden sıralanır, ödev doğru yere girer.
 
-### 3. Arayüz
+## Ek İyileştirmeler
 
-Arayüz krem renkli bir kâğıt ajandayı andırır: serif başlık, tek vurgu rengi (mürekkep mavisi), en fazla 4px köşe yuvarlaklığı; degrade ve gölge yok. Her ödev ince kenarlıklı bir satırdır. Ders adı küçük harflerle üstte, kalan gün sağda düz yazı olarak görünür. Durum sol kenardaki çizgiyle de anlaşılır: geciken kırmızı, 3 gün ve altı turuncu, daha fazlası gri. Ödev yokken kısa bir boş durum yazısı çıkar. Düzen masaüstünde ve telefon genişliğinde (375px) çalışır.
+- GitHub Pages'e otomatik yayın (GitHub Actions) — Kart [#6](https://github.com/summitman001/odev-takipci/issues/6), PR [#9](https://github.com/summitman001/odev-takipci/pull/9) ve [#10](https://github.com/summitman001/odev-takipci/pull/10)
+- Arayüz sadeleştirme, kâğıt ajanda teması — Kart [#11](https://github.com/summitman001/odev-takipci/issues/11) ve [#13](https://github.com/summitman001/odev-takipci/issues/13), PR [#12](https://github.com/summitman001/odev-takipci/pull/12) ve [#14](https://github.com/summitman001/odev-takipci/pull/14)
+
+Arayüz önce kart tasarımıyla çıkarıldı, sonra krem zeminli ve serif başlıklı sade bir kâğıt ajanda temasına çevrildi. Aşağıdaki görüntüler güncel hâlidir.
 
 | Masaüstü | Mobil (375px) |
 |---|---|
 | ![Masaüstü görünümü](docs/ekran-masaustu.png) | ![Mobil görünümü](docs/ekran-mobil.png) |
-
-1. Siteyi ilk kez açın ya da tarayıcı konsolunda `localStorage.clear()` çalıştırıp sayfayı yenileyin. "Henüz ödev yok. Yukarıdan ilkini ekle." yazısı italik ve gri olarak görünmeli.
-2. Birkaç ödev ekleyin. Her ödev ince kenarlıklı bir satır olmalı: ders adı üstte küçük harflerle, kalan gün sağda düz yazıyla, durum rengi sol çizgide.
-3. Tarayıcı penceresini daraltın (ya da geliştirici araçlarında 375px genişliği seçin). Form alanları alt alta dizilmeli, hiçbir şey taşmamalı.
 
 Sıradaki özellikler (tamamlama, silme, filtreleme) için panoya bakabilirsiniz.
