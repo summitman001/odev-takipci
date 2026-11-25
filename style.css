@@ -251,3 +251,61 @@ input.hatali:focus {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
+
+/* Boş durum */
+.bos-mesaj {
+  margin: 0;
+  padding: 6px 0;
+  color: var(--soluk);
+  font-style: italic;
+}
+
+.bos-mesaj[hidden] {
+  display: none;
+}
+
+/* Dar ekranlar (375px dahil): form alt alta, ödevler üç satır */
+@media (max-width: 640px) {
+  .icerik {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .baslik {
+    padding-top: 24px;
+  }
+
+  .baslik h1 {
+    font-size: 1.65rem;
+  }
+
+  #odev-formu {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "ders"
+      "baslik"
+      "tarih"
+      "uyari"
+      "buton";
+    row-gap: 12px;
+  }
+
+  .uyari {
+    margin-top: 0;
+  }
+
+  .buton {
+    width: 100%;
+  }
+
+  .odev {
+    grid-template-areas:
+      "ders kalan"
+      "baslik baslik"
+      "tarih tarih";
+  }
+
+  .odev-baslik {
+    margin-top: 4px;
+  }
+}
