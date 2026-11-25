@@ -47,19 +47,19 @@ Ders adı, ödev başlığı ve teslim tarihi girilerek ödev eklenir. Ödevler 
 1. Bugüne göre şu ödevleri karışık sırayla ekleyin: 5 gün önce, 1 gün önce, bugün, yarın, 3 gün sonra, 4 gün sonra, 10 gün sonra.
 2. Liste eklediğiniz sıraya bakılmadan en eski tarihten en yeniye dizilmeli.
 3. Yazılar sırasıyla "5 gün gecikti", "1 gün gecikti", "Bugün teslim", "1 gün kaldı", "3 gün kaldı", "4 gün kaldı", "10 gün kaldı" olmalı.
-4. İlk iki ödev kırmızı, bugün/yarın/3 gün sonrası turuncu, kalanlar (4 gün ve sonrası) yeşil görünmeli.
+4. İlk iki ödevin sol çizgisi ve kalan süre yazısı kırmızı, bugün/yarın/3 gün sonrası hardal (turuncu), 4 gün ve sonrası gri olmalı.
 5. 2 gün sonrası için yeni bir ödev ekleyin. Liste yeniden sıralanır, ödev doğru yere girer.
 
 ### 3. Arayüz
 
-Sayfanın üstünde uygulama adı ve alt başlığı olan bir başlık alanı bulunur. Ödevler kart olarak listelenir: ders adı küçük bir etiket, kalan gün bilgisi renkli bir rozet olarak görünür. Ödev yokken boş durum mesajı gösterilir. Tasarım masaüstünde ve telefon genişliğinde (375px) çalışır.
+Arayüz krem renkli bir kâğıt ajandayı andırır: serif başlık, tek vurgu rengi (mürekkep mavisi), en fazla 4px köşe yuvarlaklığı; degrade ve gölge yok. Her ödev ince kenarlıklı bir satırdır. Ders adı küçük harflerle üstte, kalan gün sağda düz yazı olarak görünür. Durum sol kenardaki çizgiyle de anlaşılır: geciken kırmızı, 3 gün ve altı turuncu, daha fazlası gri. Ödev yokken kısa bir boş durum yazısı çıkar. Düzen masaüstünde ve telefon genişliğinde (375px) çalışır.
 
 | Masaüstü | Mobil (375px) |
 |---|---|
 | ![Masaüstü görünümü](docs/ekran-masaustu.png) | ![Mobil görünümü](docs/ekran-mobil.png) |
 
-1. Siteyi ilk kez açın ya da tarayıcı konsolunda `localStorage.clear()` çalıştırıp sayfayı yenileyin. "Henüz ödev eklenmedi" mesajı görünmeli.
-2. Birkaç ödev ekleyin. Her ödev bir kart olarak listelenmeli; ders adı etiket, kalan gün renkli rozet olmalı.
-3. Tarayıcı penceresini daraltın (ya da geliştirici araçlarında 375px genişliği seçin). Kartlar ve form taşmadan tek sütunda dizilmeli.
+1. Siteyi ilk kez açın ya da tarayıcı konsolunda `localStorage.clear()` çalıştırıp sayfayı yenileyin. "Henüz ödev yok. Yukarıdan ilkini ekle." yazısı italik ve gri olarak görünmeli.
+2. Birkaç ödev ekleyin. Her ödev ince kenarlıklı bir satır olmalı: ders adı üstte küçük harflerle, kalan gün sağda düz yazıyla, durum rengi sol çizgide.
+3. Tarayıcı penceresini daraltın (ya da geliştirici araçlarında 375px genişliği seçin). Form alanları alt alta dizilmeli, hiçbir şey taşmamalı.
 
 Sıradaki özellikler (tamamlama, silme, filtreleme) için panoya bakabilirsiniz.
