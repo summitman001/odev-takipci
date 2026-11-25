@@ -47,7 +47,19 @@ Ders adı, ödev başlığı ve teslim tarihi girilerek ödev eklenir. Ödevler 
 1. Bugüne göre şu ödevleri karışık sırayla ekleyin: 5 gün önce, 1 gün önce, bugün, yarın, 3 gün sonra, 4 gün sonra, 10 gün sonra.
 2. Liste eklediğiniz sıraya bakılmadan en eski tarihten en yeniye dizilmeli.
 3. Yazılar sırasıyla "5 gün gecikti", "1 gün gecikti", "Bugün teslim", "1 gün kaldı", "3 gün kaldı", "4 gün kaldı", "10 gün kaldı" olmalı.
-4. İlk iki ödev kırmızı, bugün/yarın/3 gün sonrası turuncu, kalanlar renksiz görünmeli.
+4. İlk iki ödev kırmızı, bugün/yarın/3 gün sonrası turuncu, kalanlar (4 gün ve sonrası) yeşil görünmeli.
 5. 2 gün sonrası için yeni bir ödev ekleyin. Liste yeniden sıralanır, ödev doğru yere girer.
+
+### 3. Arayüz
+
+Sayfanın üstünde uygulama adı ve alt başlığı olan bir başlık alanı bulunur. Ödevler kart olarak listelenir: ders adı küçük bir etiket, kalan gün bilgisi renkli bir rozet olarak görünür. Ödev yokken boş durum mesajı gösterilir. Tasarım masaüstünde ve telefon genişliğinde (375px) çalışır.
+
+| Masaüstü | Mobil (375px) |
+|---|---|
+| ![Masaüstü görünümü](docs/ekran-masaustu.png) | ![Mobil görünümü](docs/ekran-mobil.png) |
+
+1. Siteyi ilk kez açın ya da tarayıcı konsolunda `localStorage.clear()` çalıştırıp sayfayı yenileyin. "Henüz ödev eklenmedi" mesajı görünmeli.
+2. Birkaç ödev ekleyin. Her ödev bir kart olarak listelenmeli; ders adı etiket, kalan gün renkli rozet olmalı.
+3. Tarayıcı penceresini daraltın (ya da geliştirici araçlarında 375px genişliği seçin). Kartlar ve form taşmadan tek sütunda dizilmeli.
 
 Sıradaki özellikler (tamamlama, silme, filtreleme) için panoya bakabilirsiniz.

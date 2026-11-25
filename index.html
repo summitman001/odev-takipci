@@ -8,8 +8,19 @@
 </head>
 <body>
   <header class="baslik">
-    <h1>Ödev Takipçi</h1>
-    <p>Tüm derslerin ödevleri tek yerde.</p>
+    <div class="baslik-icerik">
+      <div class="baslik-ikon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="4" width="14" height="17" rx="2"></rect>
+          <path d="M9 4h6v3H9z"></path>
+          <path d="m9 14 2 2 4-4"></path>
+        </svg>
+      </div>
+      <div>
+        <h1>Ödev Takipçi</h1>
+        <p>Tüm derslerin ödevleri ve teslim tarihleri tek yerde.</p>
+      </div>
+    </div>
   </header>
 
   <main>
@@ -40,7 +51,16 @@
 
     <section class="kart" aria-labelledby="liste-baslik">
       <h2 id="liste-baslik">Ödevlerim</h2>
-      <p id="bos-mesaj" class="bos-mesaj">Henüz ödev eklenmedi.</p>
+      <div id="bos-mesaj" class="bos-mesaj">
+        <div class="bos-ikon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+            <path d="M16 3v4M8 3v4M3 10h18"></path>
+          </svg>
+        </div>
+        <p class="bos-baslik">Henüz ödev eklenmedi</p>
+        <p class="bos-ipucu">Yukarıdaki formdan ilk ödevini ekleyerek başla.</p>
+      </div>
       <ul id="odev-listesi" class="odev-listesi"></ul>
     </section>
   </main>
