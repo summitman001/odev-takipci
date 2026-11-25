@@ -74,3 +74,104 @@ main.icerik {
   font-size: 1.15rem;
   font-weight: 700;
 }
+
+/* Form: masaüstünde tek satır, dar ekranda alt alta */
+#odev-formu {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) 10.5rem auto;
+  grid-template-areas:
+    "ders baslik tarih buton"
+    "uyari uyari uyari uyari";
+  column-gap: 12px;
+  row-gap: 0;
+  align-items: end;
+}
+
+.alan {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.alan:nth-of-type(1) {
+  grid-area: ders;
+}
+
+.alan:nth-of-type(2) {
+  grid-area: baslik;
+}
+
+.alan:nth-of-type(3) {
+  grid-area: tarih;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 10px;
+  border: 1px solid var(--cizgi-koyu);
+  border-radius: 3px;
+  background: var(--satir);
+  color: inherit;
+  font: inherit;
+}
+
+input::placeholder {
+  color: #7d786b;
+}
+
+input:focus {
+  outline: 2px solid var(--vurgu);
+  outline-offset: 1px;
+  border-color: var(--vurgu);
+}
+
+input.hatali {
+  border-color: var(--gecmis);
+}
+
+input.hatali:focus {
+  outline-color: var(--gecmis);
+}
+
+.uyari {
+  grid-area: uyari;
+  margin: 10px 0 0;
+  padding: 6px 10px;
+  border-left: 4px solid var(--gecmis);
+  background: var(--satir);
+  color: var(--gecmis);
+  font-size: 0.9rem;
+}
+
+.uyari[hidden] {
+  display: none;
+}
+
+.buton {
+  grid-area: buton;
+  height: 2.5rem;
+  padding: 0 22px;
+  border: 1px solid var(--vurgu);
+  border-radius: 3px;
+  background: var(--vurgu);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buton:hover {
+  border-color: var(--vurgu-koyu);
+  background: var(--vurgu-koyu);
+}
+
+.buton:focus-visible {
+  outline: 2px solid var(--vurgu);
+  outline-offset: 2px;
+}
