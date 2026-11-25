@@ -175,3 +175,79 @@ input.hatali:focus {
   outline: 2px solid var(--vurgu);
   outline-offset: 2px;
 }
+
+/* Ödev satırları: ince kenarlıklı satır, sol kenarda 4px durum çizgisi.
+   Üst satırda ders ve kalan süre, alt satırda başlık ve tarih. */
+.odev-listesi {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.odev {
+  --serit: var(--cizgi-koyu);
+  --kalan-renk: var(--soluk);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "ders kalan"
+    "baslik tarih";
+  column-gap: 16px;
+  row-gap: 2px;
+  align-items: baseline;
+  padding: 10px 14px;
+  background: var(--satir);
+  border: 1px solid var(--cizgi);
+  border-left: 4px solid var(--serit);
+  border-radius: 3px;
+}
+
+.odev--gecmis {
+  --serit: var(--gecmis);
+  --kalan-renk: var(--gecmis);
+}
+
+.odev--yakin {
+  --serit: var(--yakin);
+  --kalan-renk: var(--yakin-yazi);
+}
+
+.odev-ders {
+  grid-area: ders;
+  margin: 0;
+  color: var(--vurgu);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.odev-kalan {
+  grid-area: kalan;
+  margin: 0;
+  color: var(--kalan-renk);
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.odev-baslik {
+  grid-area: baslik;
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.odev-tarih {
+  grid-area: tarih;
+  margin: 0;
+  color: var(--soluk);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
