@@ -183,9 +183,41 @@ input.hatali:focus {
 }
 
 /* Liste */
+/* Boş durum */
 .bos-mesaj {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 28px 16px;
+  border: 2px dashed var(--cizgi);
+  border-radius: 14px;
+  background: #fafbff;
   color: var(--yazi-soluk);
+  text-align: center;
+}
+
+.bos-ikon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  background: #eceeff;
+  color: var(--vurgu);
+}
+
+.bos-baslik {
+  margin: 0;
+  color: var(--yazi);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.bos-ipucu {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .bos-mesaj[hidden] {
@@ -321,5 +353,58 @@ input.hatali:focus {
   .buton {
     width: auto;
     min-width: 140px;
+  }
+}
+
+/* Dar ekranlar (375px ve altı dahil) */
+@media (max-width: 480px) {
+  .baslik {
+    padding: 24px 16px 60px;
+  }
+
+  .baslik-icerik {
+    gap: 12px;
+  }
+
+  .baslik-ikon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .baslik h1 {
+    font-size: 1.5rem;
+  }
+
+  .baslik p {
+    font-size: 0.9rem;
+  }
+
+  main {
+    margin-top: -36px;
+    padding: 0 12px 32px;
+  }
+
+  .kart {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .odev {
+    padding: 12px 12px 12px 18px;
+  }
+}
+
+/* Hareketi azaltmayı tercih edenler için geçişleri kapat */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+
+  .buton:hover,
+  .odev:hover {
+    transform: none;
   }
 }
