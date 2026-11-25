@@ -7,29 +7,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="baslik">
-    <div class="baslik-icerik">
-      <div class="baslik-ikon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="5" y="4" width="14" height="17" rx="2"></rect>
-          <path d="M9 4h6v3H9z"></path>
-          <path d="m9 14 2 2 4-4"></path>
-        </svg>
-      </div>
-      <div>
-        <h1>Ödev Takipçi</h1>
-        <p>Tüm derslerin ödevleri ve teslim tarihleri tek yerde.</p>
-      </div>
+  <header class="baslik icerik">
+    <div class="baslik-metin">
+      <h1>Ödev Takipçi</h1>
+      <p>Teslim tarihlerini kaçırmamak için.</p>
     </div>
   </header>
 
-  <main>
-    <section class="kart" aria-labelledby="form-baslik">
-      <h2 id="form-baslik">Yeni ödev ekle</h2>
+  <main class="icerik">
+    <section class="bolum" aria-labelledby="form-baslik">
+      <h2 id="form-baslik">Yeni ödev</h2>
 
       <form id="odev-formu" novalidate>
         <div class="alan">
-          <label for="ders">Ders adı</label>
+          <label for="ders">Ders</label>
           <input type="text" id="ders" name="ders" placeholder="Örn. Veri Yapıları" autocomplete="off">
         </div>
 
@@ -49,18 +40,9 @@
       </form>
     </section>
 
-    <section class="kart" aria-labelledby="liste-baslik">
+    <section class="bolum" aria-labelledby="liste-baslik">
       <h2 id="liste-baslik">Ödevlerim</h2>
-      <div id="bos-mesaj" class="bos-mesaj">
-        <div class="bos-ikon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-            <path d="M16 3v4M8 3v4M3 10h18"></path>
-          </svg>
-        </div>
-        <p class="bos-baslik">Henüz ödev eklenmedi</p>
-        <p class="bos-ipucu">Yukarıdaki formdan ilk ödevini ekleyerek başla.</p>
-      </div>
+      <p id="bos-mesaj" class="bos-mesaj">Henüz ödev yok. Yukarıdan ilkini ekle.</p>
       <ul id="odev-listesi" class="odev-listesi"></ul>
     </section>
   </main>
